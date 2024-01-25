@@ -1,0 +1,52 @@
+{% extends "Events/main.html" %}
+
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h5>{{ event.name}}</h5>
+                        </div>
+                        <div class="col-md-3">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>                  
+                          <tr>
+                            <th style="width: 10px">No.</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Contact number</th>
+                           
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in event.participant.all %}  
+                                <tr role="row">
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                       {{user.name}}
+                                    </td>
+                                    
+                                    <td>{{user.email}}</td>
+                                    <td>{{ user.phone_number }}</td>
+                                    
+                                    
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "Events/homemain.html" %}
+{% block content %}
+    {% for Event in Events %}
+        <article class="media content-section">
+          
+          <div class="media-body">
+            <div class="article-metadata"> 
+              <h4 href="#" class="list-group-item active">{{Event.name}}</h4>
+              
+            </div>
+            <h5 class="text-info"> <a> Last date of registration - </a>{{ Event.registration_deadline }}</h5>
+            
+            <p class="article-content">{{ Event.description }}</p>
+            <p class="article-content">{{ Event.center }}</p>
+
+            <footer class="blockquote-footer">LOCATION : {{Event.location}} </footer>
+            <div>
+              
+              <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{% url 'event-home-register' Event.id %}">Register</a>
+
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

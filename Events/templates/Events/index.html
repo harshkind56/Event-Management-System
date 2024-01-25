@@ -1,0 +1,24 @@
+{% extends "Events/main.html" %}
+{% block content %}
+    {% for Event in Events %}
+        <article class="media content-section">
+          
+          <div class="media-body">
+            <div class="article-metadata"> 
+              <h4 href="#" class="list-group-item active">{{Event.name}}</h4>
+              
+            </div>
+            <h5 class="text-info"> <a> Last date of registration - </a>{{ Event.registration_deadline }}</h5>
+            
+            <p class="article-content">{{ Event.description }}</p>
+           
+            <div>
+              <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{% url 'event-update' Event.id %}">Update</a>
+              <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' Event.id %}">Delete</a>
+              <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{% url 'event-participant' Event.id %}">Participants</a>
+              
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

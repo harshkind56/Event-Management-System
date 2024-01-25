@@ -1,0 +1,15 @@
+{% extends "Events/main.html" %}
+{% block content %}
+  <article class="media content-section">
+    
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.name }}</a>
+        
+        
+      </div>
+      <h2 class="article-title">{{ object.registration_deadline }}</h2>
+      <p class="article-content">{{ object.description }}</p>
+    </div>
+  </article>
+{% endblock content %}
